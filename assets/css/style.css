@@ -122,35 +122,50 @@ footer{border-top:1px solid rgba(255,255,255,.1);padding:30px 0;color:#71869e;fo
   right:15px;
   top:50%;
   z-index:9999;
+
   display:flex;
   align-items:center;
   gap:8px;
-  padding:8px 12px;
+
+  padding:7px 11px;
+
   background:rgba(3,12,27,.94);
   border:1px solid var(--cyan);
   border-radius:30px;
+
   box-shadow:0 6px 20px rgba(0,0,0,.4);
   backdrop-filter:blur(8px);
-  cursor:move;
+
+  cursor:grab;
   user-select:none;
   touch-action:none;
 }
 
+.call-center:active{
+  cursor:grabbing;
+}
+
 .call-icon{
-  width:30px;
-  height:30px;
+  width:28px;
+  height:28px;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   background:linear-gradient(135deg,var(--yellow),var(--orange));
   color:#120800;
+
   border-radius:50%;
-  font-size:14px;
+  font-size:13px;
+
+  pointer-events:none;
 }
 
 .call-info{
   display:flex;
   flex-direction:column;
+  pointer-events:none;
 }
 
 .call-info small{
