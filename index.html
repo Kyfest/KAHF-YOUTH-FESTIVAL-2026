@@ -147,6 +147,37 @@ Kegiatan ini menjadi wadah silaturahmi antarsekolah untuk memupuk semangat berpr
     <small>CALL CENTER</small>
     <strong>0812-3456-7890</strong>
   </div>
+    <script>
+const callCenter = document.querySelector('.call-center');
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+callCenter.addEventListener('pointerdown', function(e) {
+  isDragging = true;
+
+  const rect = callCenter.getBoundingClientRect();
+
+  offsetX = e.clientX - rect.left;
+  offsetY = e.clientY - rect.top;
+
+  callCenter.style.right = 'auto';
+  callCenter.style.bottom = 'auto';
+  callCenter.setPointerCapture(e.pointerId);
+});
+
+callCenter.addEventListener('pointermove', function(e) {
+  if (!isDragging) return;
+
+  callCenter.style.left = (e.clientX - offsetX) + 'px';
+  callCenter.style.top = (e.clientY - offsetY) + 'px';
+});
+
+callCenter.addEventListener('pointerup', function() {
+  isDragging = false;
+});
+</script>
 </div>
 </body>
 </html>
