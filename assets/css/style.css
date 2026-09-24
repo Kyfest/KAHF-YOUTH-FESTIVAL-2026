@@ -116,34 +116,36 @@ footer{border-top:1px solid rgba(255,255,255,.1);padding:30px 0;color:#71869e;fo
 .event{grid-template-columns:1fr;gap:8px}
 .footer-inner{flex-direction:column}
 
-  /* FLOATING CALL CENTER */
+/* FLOATING CALL CENTER */
 .call-center{
   position:fixed;
-  right:20px;
+  right:15px;
   top:50%;
-  transform:translateY(-50%);
   z-index:9999;
   display:flex;
   align-items:center;
-  gap:10px;
-  padding:12px 18px;
-  background:rgba(3,12,27,.92);
+  gap:8px;
+  padding:8px 12px;
+  background:rgba(3,12,27,.94);
   border:1px solid var(--cyan);
-  border-radius:50px;
-  box-shadow:0 8px 30px rgba(0,0,0,.4);
-  backdrop-filter:blur(10px);
+  border-radius:30px;
+  box-shadow:0 6px 20px rgba(0,0,0,.4);
+  backdrop-filter:blur(8px);
+  cursor:move;
+  user-select:none;
+  touch-action:none;
 }
 
 .call-icon{
-  width:38px;
-  height:38px;
+  width:30px;
+  height:30px;
   display:flex;
   align-items:center;
   justify-content:center;
   background:linear-gradient(135deg,var(--yellow),var(--orange));
   color:#120800;
   border-radius:50%;
-  font-size:18px;
+  font-size:14px;
 }
 
 .call-info{
@@ -152,14 +154,14 @@ footer{border-top:1px solid rgba(255,255,255,.1);padding:30px 0;color:#71869e;fo
 }
 
 .call-info small{
-  font-size:9px;
+  font-size:7px;
   color:var(--cyan);
   font-weight:800;
   letter-spacing:1px;
 }
 
 .call-info strong{
-  font-size:13px;
+  font-size:11px;
   color:#fff;
   white-space:nowrap;
 }
