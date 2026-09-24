@@ -141,40 +141,63 @@ Kegiatan ini menjadi wadah silaturahmi antarsekolah untuk memupuk semangat berpr
 <footer><div class="container footer-inner"><span>© 2026 KYFEST — Kahf Youth Festival</span><span>Kahf Islamic Boarding School</span></div></footer>
 
 <script src="assets/js/script.js"></script>
-  <div class="call-center">
+  <div class="call-center" id="callCenter">
   <div class="call-icon">☎</div>
+
   <div class="call-info">
     <small>CALL CENTER</small>
     <strong>0812-3456-7890</strong>
   </div>
-    <script>
-const callCenter = document.querySelector('.call-center');
+</div>
+
+<script>
+const callCenter = document.getElementById("callCenter");
 
 let isDragging = false;
-let offsetX = 0;
-let offsetY = 0;
+let startX = 0;
+let startY = 0;
+let startLeft = 0;
+let startTop = 0;
 
-callCenter.addEventListener('pointerdown', function(e) {
+callCenter.addEventListener("pointerdown", function(e) {
   isDragging = true;
 
   const rect = callCenter.getBoundingClientRect();
 
-  offsetX = e.clientX - rect.left;
-  offsetY = e.clientY - rect.top;
+  startX = e.clientX;
+  startY = e.clientY;
+  startLeft = rect.left;
+  startTop = rect.top;
 
-  callCenter.style.right = 'auto';
-  callCenter.style.bottom = 'auto';
+  callCenter.style.left = startLeft + "px";
+  callCenter.style.top = startTop + "px";
+  callCenter.style.right = "auto";
+  callCenter.style.bottom = "auto";
+
   callCenter.setPointerCapture(e.pointerId);
+
+  e.preventDefault();
 });
 
-callCenter.addEventListener('pointermove', function(e) {
+callCenter.addEventListener("pointermove", function(e) {
   if (!isDragging) return;
 
-  callCenter.style.left = (e.clientX - offsetX) + 'px';
-  callCenter.style.top = (e.clientY - offsetY) + 'px';
+  callCenter.style.left =
+    (startLeft + e.clientX - startX) + "px";
+
+  callCenter.style.top =
+    (startTop + e.clientY - startY) + "px";
 });
 
-callCenter.addEventListener('pointerup', function() {
+callCenter.addEventListener("pointerup", function(e) {
+  isDragging = false;
+
+  try {
+    callCenter.releasePointerCapture(e.pointerId);
+  } catch (error) {}
+});
+
+callCenter.addEventListener("pointercancel", function() {
   isDragging = false;
 });
 </script>
